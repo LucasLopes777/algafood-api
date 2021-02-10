@@ -54,6 +54,10 @@ public class Restaurante {
 	public Cozinha getCozinha() {
 		return cozinha;
 	}
+	
+	public void setCozinha(Cozinha cozinha) {
+		this.cozinha = cozinha;
+	}
 
 	@Override
 	public int hashCode() {
