@@ -1,5 +1,8 @@
 package com.algaworks.algafood.api.controller;
 
+import static com.algaworks.algafood.infrastructure.repository.spec.RestauranteSpecs.comFreteGratis;
+import static com.algaworks.algafood.infrastructure.repository.spec.RestauranteSpecs.comNomeSemelhante;
+
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
@@ -14,7 +17,7 @@ import com.algaworks.algafood.domain.repository.CozinhaRepository;
 import com.algaworks.algafood.domain.repository.RestauranteRepository;
 
 @RestController
-@RequestMapping("/teste")
+@RequestMapping(value = "/teste")
 public class TesteController {
 
 	@Autowired
@@ -43,6 +46,11 @@ public class TesteController {
 		return restauranteRepository.findTop2ByNomeContaining(nome);
 	}
 	
+	@GetMapping("/restaurantes/por-nome-e-frete")
+	public List<Restaurante> RestaurantesPorNomeFrete(String nome, BigDecimal taxaFreteInicial, BigDecimal taxaFreteFinal){
+		return restauranteRepository.find(nome, taxaFreteInicial, taxaFreteFinal);
+	}
+	
 	@GetMapping("/cozinhas/exists")
 	public boolean cozinhasExists(String nome) {
 		return cozinhaRepository.existsByNome(nome);
@@ -51,6 +59,12 @@ public class TesteController {
 	@GetMapping("/restautrantes/count")
 	public int restaurantesCount(Long cozinhaId) {
 		return restauranteRepository.countByCozinhaId(cozinhaId);
+	}
+	
+	@GetMapping("/retaurantes/com-frete-gratis")
+	public List<Restaurante> restauranteComFreteGratis(String nome){
+		
+		return restauranteRepository.findAll(comFreteGratis().and(comNomeSemelhante(nome)));
 	}
 	
 }
