@@ -1,8 +1,5 @@
 package com.algaworks.algafood.api.controller;
 
-import static com.algaworks.algafood.infrastructure.repository.spec.RestauranteSpecs.comFreteGratis;
-import static com.algaworks.algafood.infrastructure.repository.spec.RestauranteSpecs.comNomeSemelhante;
-
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.algaworks.algafood.domain.model.Cozinha;
 import com.algaworks.algafood.domain.model.Restaurante;
 import com.algaworks.algafood.domain.repository.CozinhaRepository;
 import com.algaworks.algafood.domain.repository.RestauranteRepository;
@@ -56,15 +54,26 @@ public class TesteController {
 		return cozinhaRepository.existsByNome(nome);
 	}
 	
+	@GetMapping("/cozinhas/primeira")
+	public Optional<Cozinha> cozinhaPrimeiro(){
+		return cozinhaRepository.buscarPrimeiro();
+	}
+	
 	@GetMapping("/restautrantes/count")
 	public int restaurantesCount(Long cozinhaId) {
 		return restauranteRepository.countByCozinhaId(cozinhaId);
 	}
 	
-	@GetMapping("/retaurantes/com-frete-gratis")
-	public List<Restaurante> restauranteComFreteGratis(String nome){
+//	@GetMapping("/restaurantes/com-frete-gratis")
+//	public List<Restaurante> restauranteComFreteGratis(String nome){
+//		
+//		return restauranteRepository.findComFreteGratis(nome);
+//	}
+	
+	@GetMapping("/restaurantes/primeiro")
+	public Optional<Restaurante> restaurtantePrimeiro(){
 		
-		return restauranteRepository.findAll(comFreteGratis().and(comNomeSemelhante(nome)));
+		return restauranteRepository.buscarPrimeiro();
 	}
 	
 }

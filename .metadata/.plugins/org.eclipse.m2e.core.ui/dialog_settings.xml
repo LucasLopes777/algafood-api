@@ -3,6 +3,7 @@
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
 			<item value="C:\Estudos\Algaworks\Spring Rest\workspace\algafood-api"/>
+			<item value="C:\Estudos\Algaworks\Spring Rest\workspace"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
