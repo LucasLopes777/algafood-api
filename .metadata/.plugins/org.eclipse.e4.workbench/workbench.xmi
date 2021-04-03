@@ -351,7 +351,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_RR7e8Gv2Eeu_3LPjFy8PJg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_K8chUIUVEeuR-oV-MXZ5jw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_PhajvGv2Eeu_3LPjFy8PJg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_mcurcIz1EeuxjqFcbnQF_A" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_PhajvGv2Eeu_3LPjFy8PJg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_RR7e8Wv2Eeu_3LPjFy8PJg" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -388,7 +388,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_RR8tEGv2Eeu_3LPjFy8PJg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_K8iA4IUVEeuR-oV-MXZ5jw" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_PhZ8n2v2Eeu_3LPjFy8PJg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_mc0LAIz1EeuxjqFcbnQF_A" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_PhZ8n2v2Eeu_3LPjFy8PJg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_RR8tEWv2Eeu_3LPjFy8PJg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -910,6 +910,12 @@
     <bindings xmi:id="_gYT9oHusEeuWpIs-ySyHxA" keySequence="ALT+SHIFT+R" command="_PhKE42v2Eeu_3LPjFy8PJg"/>
     <bindings xmi:id="_gYUksHusEeuWpIs-ySyHxA" keySequence="ALT+SHIFT+V" command="_PhJd1mv2Eeu_3LPjFy8PJg"/>
   </bindingTables>
+  <bindingTables xmi:id="_l4yQ4Iz1EeuxjqFcbnQF_A" elementId="org.sqleditor.editors.SQLEditor.context" bindingContext="_l4PeUIz1EeuxjqFcbnQF_A">
+    <bindings xmi:id="_l4yQ4Yz1EeuxjqFcbnQF_A" keySequence="CTRL+SHIFT+P" command="_l4IwoIz1EeuxjqFcbnQF_A"/>
+    <bindings xmi:id="_l40GEIz1EeuxjqFcbnQF_A" keySequence="CTRL+7" command="_l4J-wYz1EeuxjqFcbnQF_A"/>
+    <bindings xmi:id="_l43wcIz1EeuxjqFcbnQF_A" keySequence="CTRL+SHIFT+F" command="_l4JXsIz1EeuxjqFcbnQF_A"/>
+    <bindings xmi:id="_l47a0Iz1EeuxjqFcbnQF_A" keySequence="CTRL+O" command="_l4J-wIz1EeuxjqFcbnQF_A"/>
+  </bindingTables>
   <rootContext xmi:id="_Pcr0mWv2Eeu_3LPjFy8PJg" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.platform" name="In Dialogs and Windows" description="Either a dialog or a window is open">
     <children xmi:id="_Pcr0mmv2Eeu_3LPjFy8PJg" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.platform" name="In Windows" description="A window is open">
       <children xmi:id="_Pcr0m2v2Eeu_3LPjFy8PJg" elementId="org.eclipse.e4.ui.contexts.views" contributorURI="platform:/plugin/org.eclipse.platform" name="%bindingcontext.name.bindingView"/>
@@ -948,6 +954,7 @@
         <children xmi:id="_PhhRa2v2Eeu_3LPjFy8PJg" elementId="org.eclipse.jst.jsf.facesconfig.editorContext" name="In Faces Config Editor" description="Key binding context when using the Faces Config Editor"/>
         <children xmi:id="_gXihkHusEeuWpIs-ySyHxA" elementId="com.genuitec.eclipse.inlinesearch.context" name="Inline Search is Active"/>
         <children xmi:id="_gXihknusEeuWpIs-ySyHxA" elementId="com.genuitec.eclipse.genericeditor.genericEditorContext" name="in Generic Code Editor" description="When editing in the CodeTogether Remote Editor"/>
+        <children xmi:id="_l4PeUIz1EeuxjqFcbnQF_A" elementId="org.sqleditor.editors.SQLEditor.context" name="SQL context" description="Editing SQL files"/>
       </children>
       <children xmi:id="_PhhRQWv2Eeu_3LPjFy8PJg" elementId="org.eclipse.compare.compareEditorScope" name="Comparing in an Editor" description="Comparing in an Editor"/>
       <children xmi:id="_PhhRQ2v2Eeu_3LPjFy8PJg" elementId="org.eclipse.debug.ui.memoryview" name="In Memory View" description="In memory view"/>
@@ -2486,6 +2493,10 @@
   <commands xmi:id="_gXdpEnusEeuWpIs-ySyHxA" elementId="com.genuitec.eclipse.codetogether.start" commandName="Start Hosting Session" description="Collaborate with CodeTogether" category="_gXalwnusEeuWpIs-ySyHxA"/>
   <commands xmi:id="_geSp0HusEeuWpIs-ySyHxA" elementId="com.genuitec.myeclipse.help.darktheme.commandid" commandName="com.genuitec.myeclipse.help.darktheme.commandid"/>
   <commands xmi:id="_geVtIHusEeuWpIs-ySyHxA" elementId="com.genuitec.migrate.to.codemix" commandName="com.genuitec.migrate.to.codemix"/>
+  <commands xmi:id="_l4IwoIz1EeuxjqFcbnQF_A" elementId="sqleditor.editor.commands.gotomatchingbracket" commandName="Goto matching bracket" description="Goto matching bracket inside gradle document" category="_l4G7cIz1EeuxjqFcbnQF_A"/>
+  <commands xmi:id="_l4JXsIz1EeuxjqFcbnQF_A" elementId="sqleditor.editor.commands.formatsource" commandName="Format SQL (experimental)" description="Will format SQL inside editor" category="_l4G7cIz1EeuxjqFcbnQF_A"/>
+  <commands xmi:id="_l4J-wIz1EeuxjqFcbnQF_A" elementId="sqleditor.editor.commands.quickoutline" commandName="Quick outline" description="Show quick outline dialog" category="_l4G7cIz1EeuxjqFcbnQF_A"/>
+  <commands xmi:id="_l4J-wYz1EeuxjqFcbnQF_A" elementId="sqleditor.editor.commands.source.toggleComment" commandName="Toggle comment" description="Toggle comment in selected line(s)" category="_l4G7cIz1EeuxjqFcbnQF_A"/>
   <addons xmi:id="_Pcr0nWv2Eeu_3LPjFy8PJg" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_Pcr0nmv2Eeu_3LPjFy8PJg" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_Pcr0n2v2Eeu_3LPjFy8PJg" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -2497,7 +2508,7 @@
   <addons xmi:id="_Pcr0pWv2Eeu_3LPjFy8PJg" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_Pcr0pmv2Eeu_3LPjFy8PJg" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_PdeewGv2Eeu_3LPjFy8PJg" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_KcnxwYUVEeuR-oV-MXZ5jw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_PhFMYGv2Eeu_3LPjFy8PJg" elementId="org.eclipse.team.ui.category.team" name="Version control (Team)" description="Actions that apply when working with a version control system"/>
   <categories xmi:id="_PhFMYWv2Eeu_3LPjFy8PJg" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
@@ -2541,4 +2552,5 @@
   <categories xmi:id="_gXalwXusEeuWpIs-ySyHxA" elementId="com.genuitec.eclipse.lsp4e.commandCategory" name="Command"/>
   <categories xmi:id="_gXalwnusEeuWpIs-ySyHxA" elementId="com.genuitec.eclipse.codetogether.category" name="CodeTogether" description="CodeTogether Commands"/>
   <categories xmi:id="_gXalw3usEeuWpIs-ySyHxA" elementId="com.genuitec.eclipse.inlinesearch.commands.category" name="Inline Search"/>
+  <categories xmi:id="_l4G7cIz1EeuxjqFcbnQF_A" elementId="sqleditor.commands.category" name="SQL editor" description="SQL editor"/>
 </application:Application>

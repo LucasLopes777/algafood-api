@@ -172,10 +172,6 @@ IEclipsePreferences#org-eclipse-pde-ui {
 		'editor.color.tag_bold=true'
 		'editor.color.xml_comment=87,87,87'
 }
-IEclipsePreferences#org-eclipse-tm-terminal-control {
-	preferences:
-		'TerminalPrefInvertColors=true'
-}
 IEclipsePreferences#org-eclipse-ui-editors {
 	preferences:
 		'AbstractTextEditor.Color.Background=0,0,0'
