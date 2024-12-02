@@ -66,6 +66,8 @@ public class Restaurante {
 	@Embedded // As variáveis da classe Endereco fica imcorporada na tabela de Restaurante na base
 	private Endereco endereco;
 	
+	private Boolean ativo = Boolean.TRUE;
+	
 	@CreationTimestamp
 	@Column(nullable = false, columnDefinition = "datetime")
 	private OffsetDateTime dataCadastro;

@@ -21,7 +21,7 @@ public class CadastroEstadoService {
 	private EstadoRepository estadoRepository;
 
 	@Transactional
-	public Estado adicionar(Estado estado) {
+	public Estado salvar(Estado estado) {
 		return estadoRepository.save(estado);
 	}
 	
@@ -31,6 +31,7 @@ public class CadastroEstadoService {
 		try {
 		
 			estadoRepository.deleteById(estadoId);
+			estadoRepository.flush();
 			
 		} catch (EmptyResultDataAccessException e) {
 			throw new EstadoNaoEncontradoException(estadoId);
