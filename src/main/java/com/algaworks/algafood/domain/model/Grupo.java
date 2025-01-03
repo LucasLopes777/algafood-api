@@ -23,7 +23,7 @@ public class Grupo {
 	@EqualsAndHashCode.Include
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private int id;
+	private Long id;
 	
 	@Column(nullable = false)
 	private String nome; 

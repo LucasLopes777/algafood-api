@@ -1,5 +1,6 @@
 package com.algaworks.algafood.api.assembler;
 
+import com.algaworks.algafood.domain.model.Cidade;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,10 +20,13 @@ public class RestauranteInputDisassembler {
 	}
 	
 	public void copyToDomainobject(RestauranteInput restauranteInput, Restaurante restaurante) {
-		
-		// Para evitar exception
+
 		restaurante.setCozinha(new Cozinha());
-		
+
+		if (restaurante.getEndereco() != null){
+			restaurante.getEndereco().setCidade(new Cidade());
+		}
+
 		modelMapper.map(restauranteInput, restaurante);
 	}
 }

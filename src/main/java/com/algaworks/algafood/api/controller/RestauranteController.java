@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import com.algaworks.algafood.domain.exception.CidadeNaoEncontradaException;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,7 +79,7 @@ public class RestauranteController {
 
 		try {
 			return cadastroRestauranteService.salvar(restaurante);
-		} catch (RestauranteNaoEncontradoException e) {
+		} catch (RestauranteNaoEncontradoException | CidadeNaoEncontradaException e) {
 			throw new NegocioException(e.getMessage(), e);
 		}
 	}
@@ -115,7 +116,7 @@ public class RestauranteController {
 			restauranteInputDisassembler.copyToDomainobject(restauranteInput, restauranteAtual);
 		
 			return restauranteModelAssembler.toModel(cadastroRestauranteService.salvar(restauranteAtual));
-		} catch (RestauranteNaoEncontradoException e) {
+		} catch (RestauranteNaoEncontradoException | CidadeNaoEncontradaException e) {
 			throw new NegocioException(e.getMessage(), e);
 		}
 
