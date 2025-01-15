@@ -1,1 +1,1 @@
-Projeto criado para o curso Especialista Spring Rest da Agaworks.
+Projeto criado para o curso Especialista Spring Rest da Algaworks.
