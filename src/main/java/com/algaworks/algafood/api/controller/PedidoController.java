@@ -16,7 +16,6 @@ import com.algaworks.algafood.domain.repository.PedidoRepository;
 import com.algaworks.algafood.domain.service.EmissaoPedidoService;
 import com.algaworks.algafood.infrastructure.repository.spec.PedidoSpecs;
 import com.google.common.collect.ImmutableMap;
-import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -57,7 +56,7 @@ public class PedidoController {
         List<PedidoResumoModel> pedidosResumoModel = pedidoResumoModelAssembler.toCollectionModel(pedidosPage.getContent());
 
         Page<PedidoResumoModel> pedidosResumoModelPage = new PageImpl<>(
-                pedidosResumoModel, pageable, pedidosPage.getTotalElements());
+            pedidosResumoModel, pageable, pedidosPage.getTotalElements());
 
         return pedidosResumoModelPage;
     }
@@ -89,10 +88,10 @@ public class PedidoController {
 
     private Pageable traduzirPageable(Pageable apiPageable) {
         var mapeamento = ImmutableMap.of(
-                "codigo", "codigo",
-                "restaurante.nome", "restaurante.nome",
-                "cliente.nome", "cliente.nome",
-                "valorTotal", "valorTotal"
+            "codigo", "codigo",
+            "restaurante.nome", "restaurante.nome",
+            "cliente.nome", "cliente.nome",
+            "valorTotal", "valorTotal"
         );
 
         return PageableTranslator.translate(apiPageable, mapeamento);

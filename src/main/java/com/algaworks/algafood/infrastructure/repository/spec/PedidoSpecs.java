@@ -2,7 +2,6 @@ package com.algaworks.algafood.infrastructure.repository.spec;
 
 import com.algaworks.algafood.domain.filter.PedidoFilter;
 import com.algaworks.algafood.domain.model.Pedido;
-import lombok.var;
 import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.Predicate;
@@ -30,12 +29,12 @@ public class PedidoSpecs {
 
             if (filtro.getDataCriacaoInicio() != null) {
                 predicates.add(builder.greaterThanOrEqualTo(root.get("dataCriacao"),
-                        filtro.getDataCriacaoInicio()));
+                    filtro.getDataCriacaoInicio()));
             }
 
             if (filtro.getDataCriacaoFim() != null) {
                 predicates.add(builder.greaterThanOrEqualTo(root.get("dataCriacao"),
-                        filtro.getDataCriacaoFim()));
+                    filtro.getDataCriacaoFim()));
             }
 
             return builder.and(predicates.toArray(new Predicate[0]));

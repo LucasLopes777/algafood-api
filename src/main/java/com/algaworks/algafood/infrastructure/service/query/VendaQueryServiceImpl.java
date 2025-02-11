@@ -5,7 +5,6 @@ import com.algaworks.algafood.domain.model.Pedido;
 import com.algaworks.algafood.domain.model.StatusPedido;
 import com.algaworks.algafood.domain.model.dto.VendaDiaria;
 import com.algaworks.algafood.domain.service.VendaQueryService;
-import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -31,17 +30,17 @@ public class VendaQueryServiceImpl implements VendaQueryService {
         var predicates = new ArrayList<Predicate>();
 
         var functionConvertTzDataCriacao = builder.function(
-                "convert_tz", Date.class, root.get("dataCriacao"),
-                builder.literal("+00:00"), builder.literal(timeOfset));
+            "convert_tz", Date.class, root.get("dataCriacao"),
+            builder.literal("+00:00"), builder.literal(timeOfset));
 
         var functionDateDataCriacao = builder.function(
-                "date", Date.class, functionConvertTzDataCriacao);
+            "date", Date.class, functionConvertTzDataCriacao);
 
         var selection = builder.construct(
-                VendaDiaria.class,
-                functionDateDataCriacao,
-                builder.count(root.get("id")),
-                builder.sum(root.get("valorTotal")));
+            VendaDiaria.class,
+            functionDateDataCriacao,
+            builder.count(root.get("id")),
+            builder.sum(root.get("valorTotal")));
 
 
         if (filtro.getRestauranteId() != null) {
@@ -50,16 +49,16 @@ public class VendaQueryServiceImpl implements VendaQueryService {
 
         if (filtro.getDataCriacaoInicio() != null) {
             predicates.add(builder.greaterThanOrEqualTo(root.get("dataCriacao"),
-                    filtro.getDataCriacaoInicio()));
+                filtro.getDataCriacaoInicio()));
         }
 
         if (filtro.getDataCriacaoFim() != null) {
             predicates.add(builder.lessThanOrEqualTo(root.get("dataCriacao"),
-                    filtro.getDataCriacaoFim()));
+                filtro.getDataCriacaoFim()));
         }
 
         predicates.add(root.get("status").in(
-                StatusPedido.CONFIRMADO, StatusPedido.ENTREGUE
+            StatusPedido.CONFIRMADO, StatusPedido.ENTREGUE
         ));
 
         query.select(selection);

@@ -3,7 +3,6 @@ package com.algaworks.algafood.infrastructure.service.report;
 import com.algaworks.algafood.domain.filter.VendaDiariaFilter;
 import com.algaworks.algafood.domain.service.VendaQueryService;
 import com.algaworks.algafood.domain.service.VendaReportService;
-import lombok.var;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -25,7 +24,7 @@ public class PdfVendaReportService implements VendaReportService {
         try {
 
             var inputStream = this.getClass().getResourceAsStream(
-                    "/relatorios/vendas-diarias.jasper");
+                "/relatorios/vendas-diarias.jasper");
 
             var parametros = new HashMap<String, Object>();
             parametros.put("REPORT_LOCALE", new Locale("pt", "BR"));
