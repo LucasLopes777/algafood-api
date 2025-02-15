@@ -51,14 +51,15 @@ public class PedidoController {
                                              @PageableDefault(size = 10) Pageable pageable) {
 
         Pageable pageableTraduzido = traduzirPageable(pageable);
-        Page<Pedido> pedidosPage = pedidoRepository.findAll(PedidoSpecs.usandoFiltros(filtro), pageableTraduzido);
+        Page<Pedido> pedidosPage = pedidoRepository.findAll(PedidoSpecs.usandoFiltros(filtro),
+                pageableTraduzido);
 
-        List<PedidoResumoModel> pedidosResumoModel = pedidoResumoModelAssembler.toCollectionModel(pedidosPage.getContent());
+        List<PedidoResumoModel> pedidosResumoModel =
+                pedidoResumoModelAssembler.toCollectionModel(pedidosPage.getContent());
 
-        Page<PedidoResumoModel> pedidosResumoModelPage = new PageImpl<>(
-            pedidosResumoModel, pageable, pedidosPage.getTotalElements());
-
-        return pedidosResumoModelPage;
+        return new PageImpl<>(pedidosResumoModel,
+                pageable,
+                pedidosPage.getTotalElements());
     }
 
     @GetMapping("/{codigoPedido}")
@@ -82,19 +83,25 @@ public class PedidoController {
 
             return pedidoModelAssembler.toModel(novoPedido);
         } catch (EntidadeNaoEncontradaException e) {
-            throw new NegocioException(e.getMessage(), e);
+            throw new NegocioException(e.getMessage(),
+                    e);
         }
     }
 
     private Pageable traduzirPageable(Pageable apiPageable) {
         var mapeamento = ImmutableMap.of(
-            "codigo", "codigo",
-            "restaurante.nome", "restaurante.nome",
-            "cliente.nome", "cliente.nome",
-            "valorTotal", "valorTotal"
+                "codigo",
+                "codigo",
+                "restaurante.nome",
+                "restaurante.nome",
+                "cliente.nome",
+                "cliente.nome",
+                "valorTotal",
+                "valorTotal"
         );
 
-        return PageableTranslator.translate(apiPageable, mapeamento);
+        return PageableTranslator.translate(apiPageable,
+                mapeamento);
 
     }
 }
