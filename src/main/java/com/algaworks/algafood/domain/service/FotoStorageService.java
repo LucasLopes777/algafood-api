@@ -10,6 +10,8 @@ public interface FotoStorageService {
 
     void armazenar(NovaFoto novaFoto);
 
+    InputStream recuperar(String nomeArquivo);
+
     default String gerarNomeArquivo(String nomeOriginal) {
         return UUID.randomUUID().toString() + " - " + nomeOriginal;
     }

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -26,6 +27,21 @@ public class LocalFotoStorageService implements FotoStorageService {
 
         } catch (Exception e) {
             throw new StorageException("Não foi possível armazenas arquivo.",
+                    e);
+        }
+    }
+
+    @Override
+    public InputStream recuperar(String nomeArquivo) {
+
+        try {
+
+            Path arquivoPath = getArquivPath(nomeArquivo);
+
+            return Files.newInputStream(arquivoPath);
+
+        } catch (Exception e) {
+            throw new StorageException("Não foi possível recuperar arquivo.",
                     e);
         }
     }
