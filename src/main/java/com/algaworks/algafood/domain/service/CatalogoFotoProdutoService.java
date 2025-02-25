@@ -29,8 +29,8 @@ public class CatalogoFotoProdutoService {
         String nomeArquivoExistente = null;
 
         Optional<FotoProduto> fotoExistente =
-                produtoRepository.findFotoById(restaurateId,
-                        produtoId);
+            produtoRepository.findFotoById(restaurateId,
+                produtoId);
 
         if (fotoExistente.isPresent()) {
             nomeArquivoExistente = fotoExistente.get().getNomeArquivo();
@@ -42,12 +42,12 @@ public class CatalogoFotoProdutoService {
         produtoRepository.flush();
 
         FotoStorageService.NovaFoto novaFoto = FotoStorageService.NovaFoto.builder()
-                .nomeArquivo(foto.getNomeArquivo())
-                .inputStream(dadosArquivo)
-                .build();
+            .nomeArquivo(foto.getNomeArquivo())
+            .inputStream(dadosArquivo)
+            .build();
 
         fotoStorage.sustituir(nomeArquivoExistente,
-                novaFoto);
+            novaFoto);
 
         return foto;
     }
@@ -55,8 +55,20 @@ public class CatalogoFotoProdutoService {
     public FotoProduto buscarOuFalhar(Long restauranteId,
                                       Long produtoId) {
         return produtoRepository.findFotoById(restauranteId,
-                        produtoId)
-                .orElseThrow(() -> new FotoProdutoNaoEncontradaException(restauranteId,
-                        produtoId));
+                produtoId)
+            .orElseThrow(() -> new FotoProdutoNaoEncontradaException(restauranteId,
+                produtoId));
+    }
+
+    @Transactional
+    public void excluir(Long restauranteId,
+                        Long produtoId) {
+        FotoProduto foto = buscarOuFalhar(restauranteId,
+            produtoId);
+
+        produtoRepository.delete(foto);
+        produtoRepository.flush();
+
+        fotoStorage.remover(foto.getNomeArquivo());
     }
 }
