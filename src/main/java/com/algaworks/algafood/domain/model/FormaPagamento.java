@@ -1,9 +1,13 @@
 package com.algaworks.algafood.domain.model;
 
+import java.time.OffsetDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.UpdateTimestamp;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,4 +23,7 @@ public class FormaPagamento {
 	private Long id;
 	
 	private String descricao;
+	
+	@UpdateTimestamp
+	private OffsetDateTime dataAtualizacao;
 }
