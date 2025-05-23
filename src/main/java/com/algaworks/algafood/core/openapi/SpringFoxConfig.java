@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -63,12 +64,24 @@ public class SpringFoxConfig implements WebMvcConfigurer{
 			.globalResponseMessage(RequestMethod.PUT, globalPutResponseMessages())
 			.globalResponseMessage(RequestMethod.DELETE, globalDeleteResponseMessages())
 			.additionalModels(typeResolver.resolve(Problem.class))
+			.ignoredParameterTypes(ServletWebRequest.class)
+//			.globalRequestParameters(Collections.singletonList(
+//		            new RequestParameterBuilder()
+//		                    .name("campos")
+//		                    .description("Nomes das propriedades para filtrar na resposta, separados por vírgula")
+//		                    .in(ParameterType.QUERY)
+//		                    .required(true)
+//		                    .query(q -> q.model(m -> m.scalarModel(ScalarType.STRING)
+//		                    .build())
 			.directModelSubstitute(Pageable.class, PageableModelOpenApi.class)
 			.alternateTypeRules(AlternateTypeRules.newRule(
 					typeResolver.resolve(Page.class, CozinhaModel.class), 
 					CozinhasModelOpenApi.class))
 			.apiInfo(apiInfo())
-				.tags(new Tag("Cidades", "Gerencia as cidades"));
+				.tags(new Tag("Cidades", "Gerencia as cidades"),
+						new Tag("Grupos", "Gerencia os grupos de usuários"),
+						new Tag("Cozinhas", "Gerencia as cozinhas"),
+						new Tag("Formas de pagamento", "Gerencia as formas de pagamento"));
 	}
 
 	private List<ResponseMessage> globalPostResponseMessages() {
