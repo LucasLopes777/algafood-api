@@ -19,35 +19,35 @@ import io.swagger.annotations.ApiResponses;
 public interface CidadeControllerOpenApi {
 
 	@ApiOperation("Lista as cidades")
-	public List<CidadeModel> listar();
+	List<CidadeModel> listar();
 	
 	@ApiOperation("Busca uma cidade por ID")
 	@ApiResponses({
 		@ApiResponse(code = 400, message = "ID da cidade inválido", response = Problem.class),
 		@ApiResponse(code = 404, message = "Cidade não encontrada", response = Problem.class)})
-	public CidadeModel buscar(@ApiParam(value = "Id de uma cidade", example = "1") 
+	CidadeModel buscar(@ApiParam(value = "Id de uma cidade", example = "1", required = true) 
 							  Long cidadeId);
 	
 	@ApiOperation("Cadastra uma cidade")
 	@ApiResponses({
 		@ApiResponse(code = 201, message = "Cidade Cadastrada")})
-	public CidadeModel adicionar(@ApiParam(name = "corpo", value = "Representação de uma nova cidade") 
+	CidadeModel adicionar(@ApiParam(name = "corpo", value = "Representação de uma nova cidade", required = true) 
 								 CidadeInput cidadeInput);
 	
 	@ApiOperation("Atualiza uma cidade")
 	@ApiResponses({
 		@ApiResponse(code = 200, message = "Cidade atualizada"),
 		@ApiResponse(code = 404, message = "Cidade não encontrada", response = Problem.class)})
-	public CidadeModel atualizar(@ApiParam(value = "Id de uma cidade", example = "1") 
+	CidadeModel atualizar(@ApiParam(value = "Id de uma cidade", example = "1", required = true) 
 								 Long cidadeId,
-								 @ApiParam(name = "corpo", value = "Representação de uma cidade com os novos dados")
+								 @ApiParam(name = "corpo", value = "Representação de uma cidade com os novos dados", required = true)
 						         CidadeInput cidadeInput);
 	
 	@ApiOperation("Exclui uma cidade")
 	@ApiResponses({
 		@ApiResponse(code = 204, message = "Cidade excluída"),
 		@ApiResponse(code = 404, message = "Cidade não encontrada", response = Problem.class)})
-	public void excluir(@ApiParam(value = "Id de uma cidade", example = "1")
+	void excluir(@ApiParam(value = "Id de uma cidade", example = "1", required = true)
 						@PathVariable Long cidadeId);
 	
 }
